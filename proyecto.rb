@@ -6,5 +6,5 @@ get "/" do
 end
 
 get "/prueba" do
-    erb :delete, layout: :main
+    erb :formtask, layout: :main
 end
