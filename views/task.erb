@@ -4,39 +4,71 @@
             <h2>Actualmente el sistema regista ## tareas pendientes</h2>
         </div>
     </div>
-    <div class="row justify-content-center">
-        <div class="col text-center">
-            <div class="card" style="width: 18rem;">
-                <img src="img/taskincompleted.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Tareas por completar</h5>
-                  <p class="card-text">Actualmente el sistema registra ##  tareas por completar</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Cras justo odio</li>
-                  <li class="list-group-item">Dapibus ac facilisis in</li>
-                  <li class="list-group-item">Vestibulum at eros</li>
-                </ul>
-                <div class="card-body">
-                  <a href="#" class="card-link">Mostrar Tares por completar</a>
-                </div>
+    <div class="row">
+        <div class="col-6 text-center">
+            <div class="row justify-content-center">
+              <div class="col-6">
+                  <div class="card" style="width: 18rem;">
+                      <img src="img/taskincompleted.jpg" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Tareas por completar</h5>
+                        <p class="card-text">Actualmente el sistema registra ##  tareas por completar</p>
+                      </div>
+                      <div class="accordion" id="accordionExample">
+                        <div class="card">
+                          <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Mostrar Tareas Por Hacer
+                              </button>
+                            </h2>
+                          </div>
+                          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">
+                              <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Tarea 1</li>
+                                <li class="list-group-item">Tarea 2</li>
+                                <li class="list-group-item">Tarea 3</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
             </div>
         </div>
-        <div class="col text-center">
-            <div class="card" style="width: 18rem;">
-                <img src="img/taskcompleted.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Tareas completadas</h5>
-                  <p class="card-text">Actualmente el sistema registra ##  tareas por completadas</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Cras justo odio</li>
-                  <li class="list-group-item">Dapibus ac facilisis in</li>
-                  <li class="list-group-item">Vestibulum at eros</li>
-                </ul>
-                <div class="card-body">
-                  <a href="#" class="card-link">Mostrar Tareas Completadas</a>
-                </div>
+        <div class="col-6 text-center">
+            <div class="row justify-content-center">
+              <div class="col-6">
+                  <div class="card" style="width: 18rem;">
+                      <img src="img/taskcompleted.jpg" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">Tareas Completadas</h5>
+                        <p class="card-text">Actualmente el sistema registra ##  tareas completadas</p>
+                      </div>
+                      <div class="accordion" id="accordionExample2">
+                        <div class="card">
+                          <div class="card-header" id="headingTwo">
+                            <h2 class="mb-0">
+                              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                Mostrar Tareas Por Hacer
+                              </button>
+                            </h2>
+                          </div>
+                          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample2">
+                            <div class="card-body">
+                              <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Tarea 1</li>
+                                <li class="list-group-item">Tarea 2</li>
+                                <li class="list-group-item">Tarea 3</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
             </div>
         </div>
     </div>
