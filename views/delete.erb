@@ -2,11 +2,15 @@
     <div class="row">
         <div class="col">
             <div class="jumbotron">
-                <h1 class="display-4">Estas seguro de eliminar la Tarea?</h1>
-                <p class="lead">Hacer la cama</p>
+                <h1 class="display-4">Estas seguro de eliminar la Tarea: <%= @task %>?</h1>
                 <hr class="my-4">
-                <a class="btn btn-primary btn-lg" href="#" role="button">Si</a>
-                <a class="btn btn-primary btn-lg" href="/" role="button">No</a>
+                <div>
+                    <form action="/<%= @taskid %>" method="post">
+                        <input type="hidden" name="_method" value="delete">
+                        <input class="btn btn-primary btn-lg" type="submit" name="delete" value="Si">
+                        <a class="btn btn-primary btn-lg" href="/" role="button">No</a>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

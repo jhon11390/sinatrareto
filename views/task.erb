@@ -2,7 +2,7 @@
     <div class="row justify-content-center mb-4">
         <div class="col text-center">
             <h2>
-              Actualmente el sistema registra 10 tareas
+              Actualmente el sistema registra <%= @list.length%> tareas
             </h2>
         </div>
     </div>
@@ -27,11 +27,15 @@
                           </div>
                           <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
-                              <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Tarea 1</li>
-                                <li class="list-group-item">Tarea 2</li>
-                                <li class="list-group-item">Tarea 3</li>
-                              </ul>
+                              <% @list.each do |item| %>
+                                <div class="input-group mb-2">
+                                  <p class="form-control" aria-describedby="button-addon4"><%= item["title"]%></p>
+                                  <div class="input-group-append" id="button-addon4">
+                                    <a class="btn btn-danger" type="button" href="/<%= item["id"]%>"><i class="fas fa-trash-alt"></i></a>
+                                    <a class="btn btn-success" type="button"><i class="fas fa-check"></i></a>
+                                  </div>
+                                </div>
+                              <% end %>
                             </div>
                           </div>
                         </div>
@@ -79,7 +83,7 @@
 <div class="container mt-4">
   <div class="row justify-content-center">
     <div class="col-4">
-      <a type="button" class="btn btn-primary btn-lg btn-block" href="/prueba">
+      <a type="button" class="btn btn-primary btn-lg btn-block" href="/create">
         Crear Tarea
       </a>
     </div>
