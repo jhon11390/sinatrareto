@@ -11,9 +11,7 @@ get "/create" do
     erb :formtask, layout: :main
 end
 
-get "/completed" do
-    erb :completed, layout: :main
-end
+
 
 get "/:task" do
     @list = Tarea.all
@@ -28,17 +26,25 @@ get "/:task" do
     erb :delete, layout: :main
 end
 
-
+get "/:task/completed" do
+    @list = Tarea.all
+    @idtarea = 0
+    @list.each do |element|
+        if element["title"] == params[:task]
+            @idtarea= element["id"]
+        end
+    end
+    @tasktitle = Tarea.find(@idtarea)
+    @task = @tasktitle["title"]
+    erb :completed, layout: :main
+end
 
 post "/create" do
-    @task = params["task"]
+    @task = params["task"].capitalize()
     @message = "creada"
     Tarea.create(@task)
     erb :confirmed, layout: :main
 end
-
-
-
 
 
 delete "/:task" do
@@ -51,7 +57,6 @@ delete "/:task" do
     end
     @tasktitle = Tarea.find(@idtarea)
     @task = @tasktitle["title"]
-    erb :delete, layout: :main
     @message = "borrada"
     Tarea.destroy(@idtarea)
     erb :confirmed, layout: :main
@@ -60,6 +65,17 @@ end
 
 
 
-put "/:task" do
-
+put "/:task/completed" do
+    @list = Tarea.all
+    @idtarea = 0
+    @list.each do |element|
+        if element["title"] == params[:task]
+            @idtarea= element["id"]
+        end
+    end
+    @tasktitle = Tarea.find(@idtarea)
+    @task = @tasktitle["title"]
+    @message = "actualizada a completada"
+    Tarea.update(@idtarea)
+    erb :confirmed, layout: :main
 end

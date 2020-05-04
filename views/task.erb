@@ -28,13 +28,15 @@
                           <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
                               <% @list.each do |item| %>
-                                <div class="input-group mb-2">
-                                  <p class="form-control" aria-describedby="button-addon4"><%= item["title"]%></p>
-                                  <div class="input-group-append" id="button-addon4">
-                                    <a class="btn btn-danger" type="button" href="/<%= item["title"]%>"><i class="fas fa-trash-alt"></i></a>
-                                    <a class="btn btn-success" type="button" href="/completed"><i class="fas fa-check"></i></a>
+                                <% if item["done"] == false %>
+                                  <div class="input-group mb-2">
+                                    <p class="form-control" aria-describedby="button-addon4"><%= item ["title"]%></p>
+                                    <div class="input-group-append" id="button-addon4">
+                                      <a class="btn btn-danger" type="button" href="/<%= item["title"] %>"><i class="fas fa-trash-alt"></i></a>
+                                      <a class="btn btn-success" type="button" href="/<%= item["title"] %>/completed"><i   class="fas fa-check"></i></a>
+                                    </div>
                                   </div>
-                                </div>
+                                <% end %>
                               <% end %>
                             </div>
                           </div>
@@ -65,13 +67,14 @@
                           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample2">
                             <div class="card-body">
                               <% @list.each do |item| %>
-                                <div class="input-group mb-2">
-                                  <p class="form-control" aria-describedby="button-addon4"><%= item["title"]%></p>
-                                  <div class="input-group-append" id="button-addon4">
-                                    <a class="btn btn-danger" type="button" href="/<%= item["title"]%>"><i class="fas fa-trash-alt"></i></a>
-                                    <a class="btn btn-success" type="button" href="/completed"><i class="fas fa-check"></i></a>
+                                <% if item["done"] == true %>
+                                  <div class="input-group mb-2">
+                                    <p class="form-control" aria-describedby="button-addon4"><%= item ["title"]%></p>
+                                    <div class="input-group-append" id="button-addon4">
+                                      <a class="btn btn-danger" type="button" href="/<%= item["title"]  %>"><i class="fas fa-trash-alt"></i></a>
+                                    </div>
                                   </div>
-                                </div>
+                                <% end %>
                               <% end %>
                             </div>
                           </div>
