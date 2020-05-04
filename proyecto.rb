@@ -4,14 +4,21 @@ require "make_todo"
 
 get "/" do
     @list = Tarea.all
+    @tasklength = 0
+    @tasklength1 = 0
+    @list.each do |element|
+        if element["done"] == false
+            @tasklength = @tasklength+1
+        else
+            @tasklength1 = @tasklength1+1
+        end
+    end
     erb :task, layout: :main
 end
 
 get "/create" do
     erb :formtask, layout: :main
 end
-
-
 
 get "/:task" do
     @list = Tarea.all
@@ -39,6 +46,7 @@ get "/:task/completed" do
     erb :completed, layout: :main
 end
 
+
 post "/create" do
     @task = params["task"].capitalize()
     @message = "creada"
@@ -61,8 +69,6 @@ delete "/:task" do
     Tarea.destroy(@idtarea)
     erb :confirmed, layout: :main
 end
-
-
 
 
 put "/:task/completed" do

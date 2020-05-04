@@ -1,98 +1,103 @@
 <div class="container">
+
     <div class="row justify-content-center mb-4">
         <div class="col text-center">
             <h2>
-              Actualmente el sistema registra <%= @list.length%> tareas
+                Actualmente el sistema registra <%= @list.length%> tareas
             </h2>
         </div>
     </div>
-    <div class="row">
-        <div class="col-6 text-center">
+
+    <div class="row justify-content-around">
+        <div class="col-12 col-md-4 text-center mb-4">
             <div class="row justify-content-center">
-              <div class="col-6">
-                  <div class="card" style="width: 18rem;">
-                      <img src="img/taskincompleted.jpg" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h5 class="card-title">Tareas por completar</h5>
-                        <p class="card-text">5 Tareas Para Completar</p>
-                      </div>
-                      <div class="accordion" id="accordionExample">
-                        <div class="card">
-                          <div class="card-header" id="headingOne">
-                            <h2 class="mb-0">
-                              <button class="btn btn-danger" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Mostrar Tareas Por Hacer
-                              </button>
-                            </h2>
-                          </div>
-                          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                            <div class="card-body">
-                              <% @list.each do |item| %>
-                                <% if item["done"] == false %>
-                                  <div class="input-group mb-2">
-                                    <p class="form-control" aria-describedby="button-addon4"><%= item ["title"]%></p>
-                                    <div class="input-group-append" id="button-addon4">
-                                      <a class="btn btn-danger" type="button" href="/<%= item["title"] %>"><i class="fas fa-trash-alt"></i></a>
-                                      <a class="btn btn-success" type="button" href="/<%= item["title"] %>/completed"><i   class="fas fa-check"></i></a>
-                                    </div>
-                                  </div>
-                                <% end %>
-                              <% end %>
-                            </div>
-                          </div>
+                <div class="col-12">
+                    <div class="card">
+                        <img src="img/taskincompleted.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Tareas por completar</h5>
+                            <p class="card-text display-4"><%= @tasklength %></p>
                         </div>
-                      </div>
-                  </div>
-              </div>
+                        <div class="accordion" id="accordionExample">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-danger collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            Mostrar Tareas Por Hacer
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <% @list.each do |item| %>
+                                            <% if item["done"] == false %>
+                                                <div class="input-group mb-2">
+                                                    <p class="form-control" aria-describedby="button-addon4"><%= item["title"]%></p>
+                                                    <div class="input-group-append" id="button-addon4">
+                                                        <a class="btn btn-danger" type="button" href="/<%= item["title"] %>"><i class="fas fa-trash-alt"></i></a>
+                                                        <a class="btn btn-success" type="button" href="/<%= item ["title"] %>/completed"><i class="fas fa-check"></i></a>
+                                                    </div>
+                                                </div>
+                                            <% end %>
+                                        <% end %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-6 text-center">
+
+        <div class="col-12 col-md-4 text-center">
             <div class="row justify-content-center">
-              <div class="col-6">
-                  <div class="card" style="width: 18rem;">
-                      <img src="img/taskcompleted.jpg" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h5 class="card-title">Tareas Completadas</h5>
-                        <p class="card-text">5 Tareas Completadas</p>
-                      </div>
-                      <div class="accordion" id="accordionExample2">
-                        <div class="card">
-                          <div class="card-header" id="headingTwo">
-                            <h2 class="mb-0">
-                              <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                                Mostrar Tareas Completadas
-                              </button>
-                            </h2>
-                          </div>
-                          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample2">
-                            <div class="card-body">
-                              <% @list.each do |item| %>
-                                <% if item["done"] == true %>
-                                  <div class="input-group mb-2">
-                                    <p class="form-control" aria-describedby="button-addon4"><%= item ["title"]%></p>
-                                    <div class="input-group-append" id="button-addon4">
-                                      <a class="btn btn-danger" type="button" href="/<%= item["title"]  %>"><i class="fas fa-trash-alt"></i></a>
-                                    </div>
-                                  </div>
-                                <% end %>
-                              <% end %>
-                            </div>
-                          </div>
+                <div class="col-12">
+                    <div class="card">
+                        <img src="img/taskcompleted.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Tareas Completadas</h5>
+                            <p class="card-text display-4"><%= @tasklength1 %></p>
                         </div>
-                      </div>
-                  </div>
-              </div>
+                        <div class="accordion" id="accordionExample2">
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-success collapsed" ty pe="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                            Mostrar Tareas Completadas
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample2">
+                                    <div class="card-body">
+                                        <% @list.each do |item| %>
+                                            <% if item["done"] == true %>
+                                                <div class="input-group mb-2">
+                                                    <p class="form-control" aria-describedby="button-addon4"><%= item["title"] %></p>
+                                                    <div class="input-group-append" id="button-addon4">
+                                                        <a class="btn btn-danger" type="button" href="/<%= item["title"] %>"><i class="fas fa-trash-alt"></i></a>
+                                                    </div>
+                                                </div>
+                                            <% end %>
+                                        <% end %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <div class="container mt-4">
-  <div class="row justify-content-center">
-    <div class="col-4">
-      <a type="button" class="btn btn-primary btn-lg btn-block" href="/create">
-        Crear Tarea
-      </a>
+    <div class="row justify-content-center">
+        <div class="col col-md-4">
+            <a type="button" class="btn btn-primary btn-lg btn-block" href="/create">
+                Crear Tarea
+            </a>
+        </div>
     </div>
-  </div>
 </div>
+
+
