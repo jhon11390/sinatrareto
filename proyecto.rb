@@ -30,6 +30,21 @@ get "/:task" do
     end
     @tasktitle = Tarea.find(@idtarea)
     @task = @tasktitle["title"]
+    @taskid = @tasktitle["id"]
+    @taskdate = @tasktitle["created_at"]
+    erb :viewtask, layout: :main
+end
+
+get "/:task/deleted" do
+    @list = Tarea.all
+    @idtarea = 0
+    @list.each do |element|
+        if element["title"] == params[:task]
+            @idtarea= element["id"]
+        end
+    end
+    @tasktitle = Tarea.find(@idtarea)
+    @task = @tasktitle["title"]
     erb :delete, layout: :main
 end
 
@@ -55,7 +70,7 @@ post "/create" do
 end
 
 
-delete "/:task" do
+delete "/:task/deleted" do
     @list = Tarea.all
     @idtarea = 0
     @list.each do |element|
