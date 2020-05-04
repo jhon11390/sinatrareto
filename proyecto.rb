@@ -11,16 +11,24 @@ get "/create" do
     erb :formtask, layout: :main
 end
 
-get "/delete" do
-    erb :delete, layout: :main
+get "/completed" do
+    erb :completed, layout: :main
 end
 
-get "/:taskid" do
-    @taskid = params[:taskid]
-    @tasktitle = Tarea.find(@taskid)
+get "/:task" do
+    @list = Tarea.all
+    @idtarea = 0
+    @list.each do |element|
+        if element["title"] == params[:task]
+            @idtarea= element["id"]
+        end
+    end
+    @tasktitle = Tarea.find(@idtarea)
     @task = @tasktitle["title"]
     erb :delete, layout: :main
 end
+
+
 
 post "/create" do
     @task = params["task"]
@@ -30,16 +38,28 @@ post "/create" do
 end
 
 
-delete "/:taskid" do
-    @taskid = params[:taskid]
-    @tasktitle = Tarea.find(@taskid)
+
+
+
+delete "/:task" do
+    @list = Tarea.all
+    @idtarea = 0
+    @list.each do |element|
+        if element["title"] == params[:task]
+            @idtarea= element["id"]
+        end
+    end
+    @tasktitle = Tarea.find(@idtarea)
     @task = @tasktitle["title"]
+    erb :delete, layout: :main
     @message = "borrada"
-    Tarea.destroy(@taskid)
+    Tarea.destroy(@idtarea)
     erb :confirmed, layout: :main
 end
 
 
-put "/" do
+
+
+put "/:task" do
 
 end
